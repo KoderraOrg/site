@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen bg-gray-900">
     <Header />
     <div class="container mx-auto px-4 py-24">
       <!-- Barra de navegação e ações -->
@@ -7,7 +7,7 @@
         <div class="flex items-center">
           <Button 
             variant="ghost" 
-            class="mr-4" 
+            class="mr-4 text-gray-400 hover:text-white hover:bg-gray-800" 
             @click="navigateTo('/blog')"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -20,6 +20,7 @@
             variant="outline" 
             @click="deletePost"
             :disabled="isDeleting"
+            class="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white"
           >
             <span v-if="isDeleting" class="mr-2">
               <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -33,6 +34,7 @@
             variant="default"
             @click="handleEditClick"
             v-if="!isEditing"
+            class="bg-blue-600 hover:bg-blue-700 text-white"
           >
             Editar
           </Button>
@@ -40,6 +42,7 @@
             <Button 
               variant="outline"
               @click="cancelEdit"
+              class="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Cancelar
             </Button>
@@ -47,6 +50,7 @@
               variant="default"
               @click="saveEdit"
               :disabled="isSaving"
+              class="bg-blue-600 hover:bg-blue-700 text-white"
             >
               <span v-if="isSaving" class="mr-2">
                 <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -62,84 +66,86 @@
 
       <!-- Loading state -->
       <div v-if="loading" class="flex justify-center py-20">
-        <div class="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
+        <div class="animate-spin h-8 w-8 border-4 border-blue-500 border-t-transparent rounded-full"></div>
       </div>
 
       <!-- Error state -->
-      <Alert v-else-if="error" variant="destructive" class="mb-6">
-        <AlertTitle>Erro</AlertTitle>
-        <AlertDescription>{{ error }}</AlertDescription>
+      <Alert v-else-if="error" variant="destructive" class="mb-6 bg-red-900/50 border-red-700 text-red-200">
+        <AlertTitle class="text-red-200">Erro</AlertTitle>
+        <AlertDescription class="text-red-300">{{ error }}</AlertDescription>
       </Alert>
 
       <!-- Post content -->
-      <Card v-else-if="currentPost" class="max-w-3xl mx-auto">
+      <Card v-else-if="currentPost" class="max-w-3xl mx-auto bg-gray-800 border-gray-700">
         <CardContent class="pt-6">
           <!-- Modo de visualização -->
           <div v-if="!isEditing">
             <div class="flex justify-between items-center mb-6">
-              <h1 class="text-3xl font-bold">{{ currentPost.title }}</h1>
-              <span class="text-sm text-muted-foreground">
+              <h1 class="text-3xl font-bold text-white">{{ currentPost.title }}</h1>
+              <span class="text-sm text-gray-400">
                 {{ formatDate(currentPost.createdAt) }}
               </span>
             </div>
             
             <div class="flex flex-wrap gap-2 mb-6">
-              <Badge v-for="tag in currentPost.tags" :key="tag" variant="secondary">
+              <Badge v-for="tag in currentPost.tags" :key="tag" variant="secondary" class="bg-blue-500/20 text-blue-300 border-blue-500/30">
                 {{ tag }}
               </Badge>
             </div>
             
             <div class="prose max-w-none">
-              <p>{{ currentPost.content }}</p>
+              <p class="text-gray-300 leading-relaxed">{{ currentPost.content }}</p>
             </div>
           </div>
           
           <!-- Modo de edição -->
           <form v-else @submit.prevent="saveEdit">
             <!-- Notificações -->
-            <Alert v-if="editError" variant="destructive" class="mb-6">
-              <AlertTitle>Erro</AlertTitle>
-              <AlertDescription>{{ editError }}</AlertDescription>
+            <Alert v-if="editError" variant="destructive" class="mb-6 bg-red-900/50 border-red-700 text-red-200">
+              <AlertTitle class="text-red-200">Erro</AlertTitle>
+              <AlertDescription class="text-red-300">{{ editError }}</AlertDescription>
             </Alert>
             
             <!-- Campo de título -->
             <div class="mb-6">
-              <Label for="edit-title">Título</Label>
+              <Label for="edit-title" class="text-white">Título</Label>
               <Input 
                 id="edit-title" 
                 v-model="editedPost.title" 
                 placeholder="Digite o título do post" 
+                class="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                 :class="{'border-red-500': validationErrors.title}"
                 @input="validationErrors.title = ''"
               />
-              <p v-if="validationErrors.title" class="text-red-500 text-sm mt-1">
+              <p v-if="validationErrors.title" class="text-red-400 text-sm mt-1">
                 {{ validationErrors.title }}
               </p>
             </div>
             
             <!-- Campo de conteúdo -->
             <div class="mb-6">
-              <Label for="edit-content">Conteúdo</Label>
+              <Label for="edit-content" class="text-white">Conteúdo</Label>
               <Textarea 
                 id="edit-content" 
                 v-model="editedPost.content" 
                 placeholder="Digite o conteúdo do post" 
-                class="min-h-[200px]"
+                class="min-h-[200px] bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                 :class="{'border-red-500': validationErrors.content}"
                 @input="validationErrors.content = ''"
               />
-              <p v-if="validationErrors.content" class="text-red-500 text-sm mt-1">
+              <p v-if="validationErrors.content" class="text-red-400 text-sm mt-1">
                 {{ validationErrors.content }}
               </p>
             </div>
             
             <!-- Campo de tags -->
             <div class="mb-8">
-              <Label for="edit-tags">Tags (separadas por vírgula)</Label>
+              <Label for="edit-tags" class="text-white">Tags (separadas por vírgula)</Label>
               <Input 
                 id="edit-tags" 
                 v-model="tagsInput" 
                 placeholder="tecnologia, blog, dicas" 
+                class="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                 @input="updateTags"
               />
               
@@ -148,13 +154,13 @@
                   v-for="tag in editedPost.tags" 
                   :key="tag" 
                   variant="secondary"
-                  class="flex items-center gap-1"
+                  class="flex items-center gap-1 bg-blue-500/20 text-blue-300 border-blue-500/30"
                 >
                   {{ tag }}
                   <button 
                     @click="removeTag(tag)" 
                     type="button"
-                    class="text-muted-foreground hover:text-foreground transition-colors ml-1"
+                    class="text-blue-300 hover:text-blue-200 transition-colors ml-1"
                   >
                     <span class="sr-only">Remover</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
@@ -168,16 +174,16 @@
       
       <!-- Confirmar exclusão -->
       <Dialog :open="showDeleteConfirm" @update:open="showDeleteConfirm = $event">
-        <DialogContent>
+        <DialogContent class="bg-gray-800 border-gray-700">
           <DialogHeader>
-            <DialogTitle>Confirmar exclusão</DialogTitle>
-            <DialogDescription>
+            <DialogTitle class="text-white">Confirmar exclusão</DialogTitle>
+            <DialogDescription class="text-gray-400">
               Tem certeza que deseja excluir este post? Esta ação não pode ser desfeita.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button variant="outline" @click="showDeleteConfirm = false">Cancelar</Button>
-            <Button variant="destructive" @click="confirmDelete">Excluir</Button>
+            <Button variant="outline" @click="showDeleteConfirm = false" class="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white">Cancelar</Button>
+            <Button variant="destructive" @click="confirmDelete" class="bg-red-600 hover:bg-red-700 text-white">Excluir</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

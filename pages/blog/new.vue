@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen bg-gray-900">
     <Header />
     <div class="container mx-auto px-4 py-24">
       <!-- Barra de navegação -->
@@ -7,7 +7,7 @@
         <div class="flex items-center">
           <Button 
             variant="ghost" 
-            class="mr-4" 
+            class="mr-4 text-gray-400 hover:text-white hover:bg-gray-800" 
             @click="navigateTo('/blog')"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -16,57 +16,59 @@
         </div>
       </div>
       
-      <Card class="max-w-3xl mx-auto">
+      <Card class="max-w-3xl mx-auto bg-gray-800 border-gray-700">
         <CardHeader>
-          <CardTitle>Criar Novo Post</CardTitle>
-          <CardDescription>Preencha os campos abaixo para criar um novo post no blog</CardDescription>
+          <CardTitle class="text-white">Criar Novo Post</CardTitle>
+          <CardDescription class="text-gray-400">Preencha os campos abaixo para criar um novo post no blog</CardDescription>
         </CardHeader>
         <CardContent>
           <!-- Notificações -->
-          <Alert v-if="error" variant="destructive" class="mb-6">
-            <AlertTitle>Erro</AlertTitle>
-            <AlertDescription>{{ error }}</AlertDescription>
+          <Alert v-if="error" variant="destructive" class="mb-6 bg-red-900/50 border-red-700 text-red-200">
+            <AlertTitle class="text-red-200">Erro</AlertTitle>
+            <AlertDescription class="text-red-300">{{ error }}</AlertDescription>
           </Alert>
           
           <form @submit.prevent="savePost">
             <!-- Campo de título -->
             <div class="mb-6">
-              <Label for="title">Título</Label>
+              <Label for="title" class="text-white">Título</Label>
               <Input 
                 id="title" 
                 v-model="post.title" 
                 placeholder="Digite o título do post" 
+                class="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                 :class="{'border-red-500': validationErrors.title}"
                 @input="validationErrors.title = ''"
               />
-              <p v-if="validationErrors.title" class="text-red-500 text-sm mt-1">
+              <p v-if="validationErrors.title" class="text-red-400 text-sm mt-1">
                 {{ validationErrors.title }}
               </p>
             </div>
             
             <!-- Campo de conteúdo -->
             <div class="mb-6">
-              <Label for="content">Conteúdo</Label>
+              <Label for="content" class="text-white">Conteúdo</Label>
               <Textarea 
                 id="content" 
                 v-model="post.content" 
                 placeholder="Digite o conteúdo do post" 
-                class="min-h-[200px]"
+                class="min-h-[200px] bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                 :class="{'border-red-500': validationErrors.content}"
                 @input="validationErrors.content = ''"
               />
-              <p v-if="validationErrors.content" class="text-red-500 text-sm mt-1">
+              <p v-if="validationErrors.content" class="text-red-400 text-sm mt-1">
                 {{ validationErrors.content }}
               </p>
             </div>
             
             <!-- Campo de tags -->
             <div class="mb-8">
-              <Label for="tags">Tags (separadas por vírgula)</Label>
+              <Label for="tags" class="text-white">Tags (separadas por vírgula)</Label>
               <Input 
                 id="tags" 
                 v-model="tagsInput" 
                 placeholder="tecnologia, blog, dicas" 
+                class="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                 @input="updateTags"
               />
               
@@ -75,13 +77,13 @@
                   v-for="tag in post.tags" 
                   :key="tag" 
                   variant="secondary"
-                  class="flex items-center gap-1"
+                  class="flex items-center gap-1 bg-blue-500/20 text-blue-300 border-blue-500/30"
                 >
                   {{ tag }}
                   <button 
                     @click="removeTag(tag)" 
                     type="button"
-                    class="text-muted-foreground hover:text-foreground transition-colors ml-1"
+                    class="text-blue-300 hover:text-blue-200 transition-colors ml-1"
                   >
                     <span class="sr-only">Remover</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
@@ -91,12 +93,13 @@
             </div>
             
             <div class="flex justify-end gap-2">
-              <Button variant="outline" type="button" @click="navigateTo('/blog')">
+              <Button variant="outline" type="button" @click="navigateTo('/blog')" class="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white">
                 Cancelar
               </Button>
               <Button 
                 type="submit" 
                 :disabled="isSaving"
+                class="bg-blue-600 hover:bg-blue-700 text-white"
               >
                 <span v-if="isSaving" class="mr-2">
                   <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
