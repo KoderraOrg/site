@@ -12,20 +12,20 @@
       </div>
 
       <!-- Testimonials slider -->
-      <div class="relative">
-        <div class="overflow-hidden">
+      <div class="relative px-8 sm:px-16 md:px-20">
+        <div>
           <TransitionGroup
             name="testimonial"
             tag="div"
-            class="relative h-80 md:h-64"
+            class="relative min-h-[400px] md:min-h-[350px] lg:min-h-[320px]"
           >
             <div
               v-for="(testimonial, index) in testimonials"
               v-show="index === currentIndex"
               :key="testimonial.id"
-              class="absolute inset-0 flex items-center justify-center"
+              class="absolute inset-0 flex items-center justify-center w-full"
             >
-              <div class="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 md:p-8 flex flex-col items-center text-center max-w-4xl mx-auto">
+              <div class="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 md:p-8 flex flex-col items-center text-center max-w-4xl mx-auto w-full">
                 <!-- Quote icon -->
                 <div class="w-12 h-12 bg-gradient-to-br from-cyan-400/20 to-pink-500/20 rounded-full flex items-center justify-center mb-6">
                   <svg class="w-6 h-6 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
@@ -34,7 +34,7 @@
                 </div>
 
                 <!-- Testimonial content -->
-                <blockquote class="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed">
+                <blockquote class="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed max-w-3xl">
                   "{{ testimonial.content }}"
                 </blockquote>
 
@@ -64,7 +64,7 @@
         <!-- Navigation buttons -->
         <button
           @click="prevTestimonial"
-          class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 w-12 h-12 bg-gray-800/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:bg-gray-700/80 transition-all duration-300"
+          class="absolute left-0 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gray-800/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:bg-gray-700/80 transition-all duration-300 z-10"
           aria-label="Depoimento anterior"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@
 
         <button
           @click="nextTestimonial"
-          class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 w-12 h-12 bg-gray-800/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:bg-gray-700/80 transition-all duration-300"
+          class="absolute right-0 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gray-800/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:bg-gray-700/80 transition-all duration-300 z-10"
           aria-label="Próximo depoimento"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,22 +120,35 @@ onUnmounted(() => {
 <style scoped>
 .testimonial-enter-active,
 .testimonial-leave-active {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .testimonial-enter-from {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateX(30px) scale(0.95);
 }
 
 .testimonial-leave-to {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateX(-30px) scale(0.95);
 }
 
 .testimonial-enter-to,
 .testimonial-leave-from {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) scale(1);
+}
+
+/* Transição suave para mudanças de altura */
+.relative.min-h-\[400px\] {
+  transition: min-height 0.3s ease-in-out;
+}
+
+/* Melhor responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .testimonial-enter-from,
+  .testimonial-leave-to {
+    transform: translateY(20px) scale(0.95);
+  }
 }
 </style> 

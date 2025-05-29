@@ -55,7 +55,7 @@ const props = defineProps({
   },
   buttonVariant: {
     type: String as () => ButtonVariant,
-    default: 'default',
+    default: 'outline',
   },
   buttonSize: {
     type: String as () => ButtonSize,

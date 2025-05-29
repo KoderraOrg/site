@@ -3,7 +3,7 @@
     <Header />
     
     <!-- Hero Section -->
-    <div class="pt-20">
+    <div class="pt-16">
       <Hero />
     </div>
 

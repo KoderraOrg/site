@@ -8,63 +8,53 @@
             <img src="/images/logos/logo.svg" alt="Logo" class="h-12 w-12" />
           </div>
           <div class="flex flex-col">
-            <span class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition-colors duration-300">
+            <span class="text-xl font-bold text-gray-100 transition-colors duration-300">
               Koderra
             </span>
           </div>
         </NuxtLink>
         
         <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-8">
+        <nav class="hidden lg:flex items-center gap-4">
           <NuxtLink 
             to="/" 
-            class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group py-2"
-            :class="{ 'text-cyan-400': $route.path === '/' }"
+            class="text-sm font-medium transition-all duration-300 relative group py-2 px-3 rounded-lg"
+            :class="$route.path === '/' ? 'text-cyan-400 bg-cyan-400/10 cursor-default' : 'text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50'"
           >
             Início
-            <span class="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-pink-500 transition-all duration-300"
-                  :class="$route.path === '/' ? 'w-full' : 'w-0 group-hover:w-full'"></span>
           </NuxtLink>
           
           <NuxtLink 
             to="/services" 
-            class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group py-2"
-            :class="{ 'text-cyan-400': $route.path === '/services' }"
+            class="text-sm font-medium transition-all duration-300 relative group py-2 px-3 rounded-lg"
+            :class="$route.path === '/services' ? 'text-cyan-400 bg-cyan-400/10 cursor-default' : 'text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50'"
           >
             Serviços
-            <span class="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-pink-500 transition-all duration-300"
-                  :class="$route.path === '/services' ? 'w-full' : 'w-0 group-hover:w-full'"></span>
           </NuxtLink>
           
           <NuxtLink 
             to="/aboutUs" 
-            class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group py-2"
-            :class="{ 'text-cyan-400': $route.path === '/aboutUs' }"
+            class="text-sm font-medium transition-all duration-300 relative group py-2 px-3 rounded-lg"
+            :class="$route.path === '/aboutUs' ? 'text-cyan-400 bg-cyan-400/10 cursor-default' : 'text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50'"
           >
             Sobre
-            <span class="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-pink-500 transition-all duration-300"
-                  :class="$route.path === '/aboutUs' ? 'w-full' : 'w-0 group-hover:w-full'"></span>
           </NuxtLink>
           
           <NuxtLink 
             to="/contact" 
-            class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group py-2"
-            :class="{ 'text-cyan-400': $route.path === '/contact' }"
+            class="text-sm font-medium transition-all duration-300 relative group py-2 px-3 rounded-lg"
+            :class="$route.path === '/contact' ? 'text-cyan-400 bg-cyan-400/10 cursor-default' : 'text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50'"
           >
             Contato
-            <span class="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-pink-500 transition-all duration-300"
-                  :class="$route.path === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'"></span>
           </NuxtLink>
           
           <NuxtLink 
             v-if="blogEnabled" 
             to="/blog" 
-            class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group py-2"
-            :class="{ 'text-cyan-400': $route.path.startsWith('/blog') }"
+            class="text-sm font-medium transition-all duration-300 relative group py-2 px-3 rounded-lg"
+            :class="$route.path.startsWith('/blog') ? 'text-cyan-400 bg-cyan-400/10 cursor-default' : 'text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50'"
           >
             Blog
-            <span class="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-pink-500 transition-all duration-300"
-                  :class="$route.path.startsWith('/blog') ? 'w-full' : 'w-0 group-hover:w-full'"></span>
           </NuxtLink>
         </nav>
 
@@ -75,7 +65,7 @@
           <NuxtLink to="/contact">
             <Button 
               size="sm" 
-              class="bg-pink-500 hover:bg-pink-600 text-white rounded-xl px-6 py-2 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25"
+              class="bg-pink-500 hover:bg-pink-600 text-white rounded-md px-6 py-2 font-semibold transition-all duration-300 hover:shadow-pink-500/25"
             >
               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

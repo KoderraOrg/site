@@ -23,7 +23,7 @@
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
-              class="bg-pink-500 hover:bg-pink-600 text-white rounded-xl py-4 px-8 font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25"
+              class="bg-pink-500 hover:bg-pink-600 text-white rounded-md py-4 px-8 font-semibold text-lg transition-all duration-300"
               @click="handleCtaClick"
             >
               Solicite Proposta
@@ -32,7 +32,7 @@
             <Button 
               size="lg" 
               variant="outline"
-              class="border-2 border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 rounded-xl py-4 px-8 font-semibold text-lg transition-all duration-300 hover:scale-105"
+              class="border-2 border-cyan-500 text-cyan-500 hover:bg-cyan-100 rounded-md py-4 px-8 font-semibold text-lg transition-all duration-300"
               @click="scrollToContact"
             >
               Fale Conosco
