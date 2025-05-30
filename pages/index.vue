@@ -110,8 +110,21 @@ import { useSeo } from '@/composables/useSeo'
 
 useSeo({
   title: 'Consultoria Digital - Transformando Negócios no Mundo Digital',
-  description: 'Especialistas em consultoria digital, desenvolvimento web e marketing digital. Transformamos sua visão em realidade com soluções inovadoras e personalizadas.',
+  description: 'Especialistas em consultoria digital, desenvolvimento web e marketing digital. Transformamos sua visão em realidade com soluções inovadoras e personalizadas para impulsionar o crescimento do seu negócio.',
   url: '/',
-  type: 'website'
+  type: 'website',
+  keywords: [
+    'consultoria digital',
+    'desenvolvimento web',
+    'marketing digital',
+    'transformação digital',
+    'soluções digitais',
+    'crescimento digital',
+    'koderra',
+    'agência digital',
+    'websites responsivos',
+    'estratégias digitais'
+  ],
+  author: 'Koderra - Consultoria Digital'
 })
 </script>

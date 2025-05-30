@@ -116,6 +116,26 @@
 
 <script setup>
 import EmailForm from '~/components/EmailForm.vue'
+import { useSeo } from '@/composables/useSeo'
+
+// SEO Configuration
+useSeo({
+    title: 'Entre em Contato - Koderra Consultoria Digital',
+    description: 'Entre em contato com a Koderra para transformar seu negócio digital. Oferecemos consultoria especializada, desenvolvimento web e soluções digitais personalizadas. Atendimento rápido e orçamento gratuito.',
+    url: '/contact',
+    type: 'website',
+    keywords: [
+        'contato koderra',
+        'consultoria digital contato',
+        'orçamento desenvolvimento web',
+        'contato agência digital',
+        'solicitar orçamento',
+        'atendimento koderra',
+        'fale conosco',
+        'consultoria personalizada'
+    ],
+    author: 'Koderra - Consultoria Digital'
+})
 </script>
 
 <style scoped>

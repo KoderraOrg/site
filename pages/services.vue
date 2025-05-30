@@ -204,48 +204,27 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { useSeo } from '@/composables/useSeo'
 
-// SEO Meta tags
-useHead({
+// SEO Configuration
+useSeo({
     title: 'Nossos Serviços - Soluções Digitais Completas',
-    meta: [
-        {
-            name: 'description',
-            content: 'Oferecemos desenvolvimento web, aplicativos móveis e consultoria digital. Soluções completas em tecnologia para transformar seu negócio.'
-        },
-        {
-            name: 'keywords',
-            content: 'desenvolvimento web, aplicativos móveis, consultoria digital, tecnologia, soluções digitais, programação'
-        },
-        {
-            property: 'og:title',
-            content: 'Nossos Serviços - Soluções Digitais Completas'
-        },
-        {
-            property: 'og:description',
-            content: 'Oferecemos desenvolvimento web, aplicativos móveis e consultoria digital. Soluções completas em tecnologia para transformar seu negócio.'
-        },
-        {
-            property: 'og:type',
-            content: 'website'
-        },
-        {
-            property: 'og:image',
-            content: '/images/services-hero.jpg'
-        },
-        {
-            name: 'twitter:card',
-            content: 'summary_large_image'
-        },
-        {
-            name: 'twitter:title',
-            content: 'Nossos Serviços - Soluções Digitais Completas'
-        },
-        {
-            name: 'twitter:description',
-            content: 'Oferecemos desenvolvimento web, aplicativos móveis e consultoria digital. Soluções completas em tecnologia para transformar seu negócio.'
-        }
-    ]
+    description: 'Oferecemos desenvolvimento web, aplicativos móveis e consultoria digital. Soluções completas em tecnologia para transformar seu negócio e acelerar seu crescimento digital.',
+    url: '/services',
+    type: 'website',
+    keywords: [
+        'desenvolvimento web',
+        'aplicativos móveis',
+        'consultoria digital',
+        'soluções digitais',
+        'tecnologia',
+        'programação',
+        'websites responsivos',
+        'transformação digital',
+        'koderra serviços',
+        'agência digital'
+    ],
+    author: 'Koderra - Consultoria Digital'
 })
 
 const logos = [

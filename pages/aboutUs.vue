@@ -144,6 +144,27 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useSeo } from '@/composables/useSeo'
+
+// SEO Configuration
+useSeo({
+    title: 'Sobre Nós - Koderra Consultoria Digital',
+    description: 'Conheça a Koderra, empresa especializada em consultoria digital com mais de 500 projetos transformados. Nossa experiência e compromisso com a excelência nos tornam referência no mercado.',
+    url: '/aboutUs',
+    type: 'website',
+    keywords: [
+        'sobre koderra',
+        'consultoria digital',
+        'empresa digital',
+        'experiência digital',
+        'transformação digital',
+        'história empresa',
+        'equipe koderra',
+        'valores empresa',
+        'missão visão valores'
+    ],
+    author: 'Koderra - Consultoria Digital'
+})
 
 const activeTab = ref('sobre')
 
