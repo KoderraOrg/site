@@ -3,7 +3,7 @@
     <Header />
     
     <!-- Hero Section -->
-    <div class="sm:pt-16 pt-4">
+    <div class="sm:pt-12 pt-4">
       <Hero />
     </div>
 
