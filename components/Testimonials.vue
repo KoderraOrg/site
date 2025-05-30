@@ -120,35 +120,19 @@ onUnmounted(() => {
 <style scoped>
 .testimonial-enter-active,
 .testimonial-leave-active {
-  transition: all 0.6s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .testimonial-enter-from {
   opacity: 0;
-  transform: translateX(30px) scale(0.95);
 }
 
 .testimonial-leave-to {
   opacity: 0;
-  transform: translateX(-30px) scale(0.95);
 }
 
 .testimonial-enter-to,
 .testimonial-leave-from {
   opacity: 1;
-  transform: translateX(0) scale(1);
-}
-
-/* Transição suave para mudanças de altura */
-.relative.min-h-\[400px\] {
-  transition: min-height 0.3s ease-in-out;
-}
-
-/* Melhor responsividade para dispositivos móveis */
-@media (max-width: 768px) {
-  .testimonial-enter-from,
-  .testimonial-leave-to {
-    transform: translateY(20px) scale(0.95);
-  }
 }
 </style> 

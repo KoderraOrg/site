@@ -1,8 +1,12 @@
-# Template Web Vue/Nuxt
+# Site Oficial Koderra
 
-Este é um template base para iniciar projetos web utilizando Vue.js com Nuxt 3. Ele inclui configurações básicas e ferramentas essenciais para desenvolvimento web moderno.
+Este é o site oficial da **Koderra - Consultoria Digital**, desenvolvido com tecnologias modernas para oferecer a melhor experiência aos nossos clientes e visitantes.
 
-## Tecnologias Principais
+## Sobre a Koderra
+
+Especialistas em consultoria digital, desenvolvimento web e marketing digital. Transformamos sua visão em realidade com soluções inovadoras e personalizadas.
+
+## Tecnologias Utilizadas
 
 - Nuxt 3
 - Vue 3
@@ -28,7 +32,7 @@ Este é um template base para iniciar projetos web utilizando Vue.js com Nuxt 3.
 }
 ```
 
-## Configuração
+## Configuração para Desenvolvimento
 
 1. Clone este repositório
 2. Instale as dependências:
@@ -90,13 +94,13 @@ GOOGLE_SITE_VERIFICATION=your-verification-code
 
 ### Configurações de SEO
 - `SEO=true`: Habilita as funcionalidades de SEO
-- `SITE_URL`: URL do seu site (ex: https://koderra.com.br)
-- `SITE_NAME`: Nome do seu site (ex: Koderra - Consultoria Digital)
-- `SITE_DESCRIPTION`: Descrição do seu site para SEO
-- `SITE_LANGUAGE`: Idioma do site (ex: pt-BR)
+- `SITE_URL`: URL do site (https://koderra.com.br)
+- `SITE_NAME`: Nome do site (Koderra - Consultoria Digital)
+- `SITE_DESCRIPTION`: Descrição do site para SEO
+- `SITE_LANGUAGE`: Idioma do site (pt-BR)
 
 ### Configurações de Integração
-- `CAL_USERNAME`: Seu nome de usuário do Cal.com para habilitar agendamentos
+- `CAL_USERNAME`: Nome de usuário do Cal.com para agendamentos
 - `WHATSAPP_NUMBER`: Número do WhatsApp com código do país (ex: 5511999999999)
 - `BLOG=true`: Habilita funcionalidades do blog
 
@@ -135,10 +139,10 @@ pnpm db:migrate # Executa as migrações do Prisma
 
 ## Recursos de SEO
 
-O template inclui configuração completa de SEO com:
+O site possui configuração completa de SEO com:
 
 ### Composable `useSeo`
-Utilize o composable `useSeo` em suas páginas para configurar SEO:
+Utilizado nas páginas para configurar SEO:
 
 ```vue
 <script setup>
@@ -160,7 +164,7 @@ useSeo({
 </script>
 ```
 
-### Funcionalidades Incluídas
+### Funcionalidades Implementadas
 - ✅ Meta tags otimizadas (title, description, keywords)
 - ✅ Open Graph para redes sociais
 - ✅ Twitter Cards
@@ -174,19 +178,19 @@ useSeo({
 ### Sitemap Automático
 O sitemap é gerado automaticamente em `/sitemap.xml` e inclui:
 - Páginas estáticas do site
-- Posts do blog (se habilitado)
+- Posts do blog
 - Configuração de prioridade e frequência de atualização
 
-## TO-DO
+## Roadmap de Desenvolvimento
 
-- [X] Adicionar páginas pré-montadas
-- [X] Adicionar lib de UI
-- [X] Configurar autenticação
-- [X] Adicionar features flags
-- [X] Form para trigger de email
-- [X] Blog (ff)
-  - [X] Auth
-  - [X] CRUD 
+- [X] Páginas institucionais
+- [X] Biblioteca de componentes UI
+- [X] Sistema de autenticação
+- [X] Feature flags
+- [X] Formulários com envio de email
+- [X] Blog corporativo
+  - [X] Sistema de autenticação
+  - [X] CRUD de artigos
 - [X] Integração com Cal.com para agendamento
 - [X] **SEO Completo**
   - [X] Meta tags otimizadas
@@ -194,38 +198,35 @@ O sitemap é gerado automaticamente em `/sitemap.xml` e inclui:
   - [X] Structured Data
   - [X] Sitemap dinâmico
   - [X] Google Analytics
-- [ ] Adicionar testes
+- [ ] Testes automatizados
+- [ ] Otimizações de performance
+- [ ] Integração com CRM
 
-## Recursos
+## Funcionalidades
 
 ### Agendamento com Cal.com
 
-O template inclui integração com [Cal.com](https://cal.com) para agendamento de horários. Para utilizar:
-
-1. Crie uma conta no [Cal.com](https://cal.com)
-2. Configure seu nome de usuário em uma variável de ambiente:
+O site possui integração com [Cal.com](https://cal.com) para agendamento de consultorias. A configuração é feita através da variável de ambiente:
 
 ```bash
 # No arquivo .env
-CAL_USERNAME=seu_usuario_cal
+CAL_USERNAME=koderra
 ```
 
-O componente de agendamento aparecerá automaticamente no cabeçalho quando a variável `CAL_USERNAME` estiver configurada.
+O componente de agendamento é exibido automaticamente no cabeçalho quando configurado.
 
 ### WhatsApp
 
-O template inclui um componente para contato direto via WhatsApp. Para utilizar:
-
-1. Configure seu número do WhatsApp com código do país:
+Contato direto via WhatsApp configurado através da variável:
 
 ```bash
 # No arquivo .env
 WHATSAPP_NUMBER=5511999999999
 ```
 
-O botão do WhatsApp aparecerá automaticamente no cabeçalho quando a variável `WHATSAPP_NUMBER` estiver configurada.
+O botão do WhatsApp aparece automaticamente no cabeçalho quando configurado.
 
-Para personalizar os componentes em qualquer parte do site:
+Para utilizar os componentes em outras partes do site:
 
 ```vue
 <template>
@@ -267,14 +268,11 @@ Para personalizar os componentes em qualquer parte do site:
 
 ### Google Analytics
 
-Para habilitar o Google Analytics:
-
-1. Crie uma propriedade no [Google Analytics](https://analytics.google.com)
-2. Configure o ID no arquivo .env:
+O tracking está configurado automaticamente quando o ID é definido:
 
 ```bash
 # No arquivo .env
 GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 ```
 
-O tracking será automaticamente configurado em todas as páginas.
+O tracking é aplicado automaticamente em todas as páginas do site.

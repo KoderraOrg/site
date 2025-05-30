@@ -12,17 +12,17 @@ export const useTestimonials = () => {
   const testimonials = ref<Testimonial[]>([
     {
       id: 1,
-      name: "Maria Silva",
+      name: "André Silva",
       role: "CEO",
-      company: "TechStart",
-      content: "A consultoria transformou completamente nossa estratégia digital. Resultados excepcionais em apenas 3 meses!",
+      company: "SightVision",
+      content: "Ótimo trabalho! Desenvolveram um site incrível para a minha empresa. Recomendo a todos que buscam uma presença online de alta qualidade.",
       rating: 5
     },
     {
       id: 2,
-      name: "João Santos",
-      role: "Diretor de Marketing",
-      company: "Inovação Corp",
+      name: "Andrade Climatização",
+      role: "",
+      company: "Andrade Climatização",
       content: "Profissionais extremamente competentes. O projeto foi entregue no prazo e superou nossas expectativas.",
       rating: 5
     },

@@ -9,8 +9,8 @@
             heroImage="/images/about-us-hero.jpg"
             heroAlt="Imagem de fundo da página de sobre nós"
             title="Quem somos"
-            description="'Uma empresa que já transformou mais de 500 ambientes com soluções inovadoras em climatização. Nossa experiência e compromisso com a excelência nos tornam referência no mercado.'"
-            subtitle="Vinicius Andrade"
+            description="'Uma empresa jovem e inovadora, criada em 2024, com foco em transformar negócios através de soluções digitais personalizadas. Nossa paixão é ajudar nossos clientes a alcançar seus objetivos com qualidade e agilidade.'"
+            subtitle="Equipe Koderra"
         />
   
       <!-- Breadcrumb -->
@@ -53,9 +53,10 @@
                   <div v-if="activeTab === 'sobre'">
                     <h2 class="text-3xl font-bold mb-6 text-white">SOBRE NÓS</h2>
                     <div class="space-y-6 text-gray-400">
-                      <p class="leading-relaxed">A Andrade Climatização, fundada em 2015, trabalha no segmento de ar-condicionado, com venda, instalação e manutenção.</p>
-                      <p class="leading-relaxed">Nosso foco é o bem-estar de nossos clientes, por isso somos especializados na climatização de ambientes. Para tanto, dispomos de ferramentas adequadas para atender você, nosso cliente, da melhor maneira possível.</p>
-                      <p class="leading-relaxed">Contamos com equipe qualificada e comprometida, pois nosso objetivo é garantir um atendimento rápido e eficiente, onde a qualidade e o compromisso com o cliente sejam sempre prioridade.</p>
+                      <p class="leading-relaxed">A Koderra é uma empresa nova de consultoria e soluções digitais, fundada em 2024, com o propósito de transformar a jornada digital de nossos clientes.</p>
+                      <p class="leading-relaxed">Nascemos com a missão de democratizar o acesso a soluções digitais de qualidade, oferecendo consultoria especializada para empresas que desejam crescer e se destacar no mundo digital.</p>
+                      <p class="leading-relaxed">Nossa equipe é formada por profissionais apaixonados por tecnologia e inovação, comprometidos em entregar resultados excepcionais com agilidade e qualidade. Acreditamos que cada projeto é único e merece atenção personalizada.</p>
+                      <p class="leading-relaxed">Mesmo sendo uma empresa jovem, trazemos experiência consolidada de nossos profissionais, combinando conhecimento técnico com uma abordagem fresh e inovadora para resolver os desafios digitais de nossos clientes.</p>
                     </div>
                   </div>
 
@@ -65,20 +66,22 @@
                     <div class="space-y-8">
                       <div>
                         <h3 class="text-xl font-semibold text-blue-400 mb-3">Missão</h3>
-                        <p class="text-gray-400">Fornecer soluções em climatização com excelência, qualidade e compromisso, garantindo a satisfação total de nossos clientes.</p>
+                        <p class="text-gray-400">Transformar negócios através de consultoria e soluções digitais personalizadas, entregando resultados de qualidade com agilidade e foco na satisfação do cliente.</p>
                       </div>
                       <div>
                         <h3 class="text-xl font-semibold text-blue-400 mb-3">Visão</h3>
-                        <p class="text-gray-400">Ser referência no mercado de climatização, reconhecida pela excelência em serviços e atendimento ao cliente.</p>
+                        <p class="text-gray-400">Ser reconhecida como uma das principais consultorias digitais do mercado, referência em inovação, qualidade e resultados efetivos para nossos clientes.</p>
                       </div>
                       <div>
                         <h3 class="text-xl font-semibold text-blue-400 mb-3">Valores</h3>
                         <ul class="list-disc list-inside text-gray-400 space-y-2">
-                          <li>Compromisso com a qualidade</li>
-                          <li>Ética e transparência</li>
-                          <li>Inovação e tecnologia</li>
-                          <li>Satisfação do cliente</li>
-                          <li>Responsabilidade social</li>
+                          <li>Qualidade em tudo que fazemos</li>
+                          <li>Agilidade na entrega de resultados</li>
+                          <li>Inovação e criatividade</li>
+                          <li>Transparência e ética</li>
+                          <li>Foco no sucesso do cliente</li>
+                          <li>Aprendizado contínuo</li>
+                          <li>Colaboração e trabalho em equipe</li>
                         </ul>
                       </div>
                     </div>
@@ -88,14 +91,20 @@
                   <div v-if="activeTab === 'area'">
                     <h2 class="text-3xl font-bold mb-6 text-white">ÁREA DE ATENDIMENTO</h2>
                     <div class="space-y-6 text-gray-400">
-                      <p class="leading-relaxed">Atendemos toda a região de Campinas e cidades vizinhas, incluindo:</p>
+                      <p class="leading-relaxed">Atendemos clientes em todo o Brasil de forma remota, e presencialmente nas principais cidades do país!</p>
+                      <p class="leading-relaxed">Nossa metodologia digital permite que oferecemos consultoria de alta qualidade independente da localização, garantindo o mesmo nível de excelência para todos os nossos clientes.</p>
                       <ul class="list-disc list-inside space-y-2">
-                        <li>Campinas</li>
-                        <li>Valinhos</li>
-                        <li>Vinhedo</li>
-                        <li>Hortolândia</li>
-                        <li>Sumaré</li>
-                        <li>Monte Mor</li>
+                        <li>São Paulo</li>
+                        <li>Rio de Janeiro</li>
+                        <li>Brasília</li>
+                        <li>Salvador</li>
+                        <li>Fortaleza</li>
+                        <li>Curitiba</li>
+                        <li>Belo Horizonte</li>
+                        <li>Manaus</li>
+                        <li>Recife</li>
+                        <li>Porto Alegre</li>
+                        <li>E todo o território nacional via consultoria remota</li>
                       </ul>
                     </div>
                   </div>
@@ -104,19 +113,31 @@
                   <div v-if="activeTab === 'clientes'">
                     <h2 class="text-3xl font-bold mb-6 text-white">NOSSOS CLIENTES</h2>
                     <div class="space-y-6 text-gray-400">
-                      <p class="leading-relaxed">Temos orgulho de atender diversos segmentos do mercado, desde residências até grandes empresas. Nossos clientes são nossa maior motivação para continuar oferecendo o melhor serviço.</p>
+                      <p class="leading-relaxed">Atendemos empresas de todos os tamanhos e segmentos, desde startups em crescimento até empresas consolidadas que buscam transformação digital. Cada cliente é único e recebe soluções personalizadas para suas necessidades específicas.</p>
                       <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
                         <div class="bg-gray-700 p-4 rounded-lg text-center">
-                          <i class="fas fa-home text-3xl text-blue-400 mb-2"></i>
-                          <h3 class="font-semibold text-white">Residências</h3>
+                          <i class="fas fa-rocket text-3xl text-blue-400 mb-2"></i>
+                          <h3 class="font-semibold text-white">Startups</h3>
                         </div>
                         <div class="bg-gray-700 p-4 rounded-lg text-center">
                           <i class="fas fa-building text-3xl text-blue-400 mb-2"></i>
-                          <h3 class="font-semibold text-white">Empresas</h3>
+                          <h3 class="font-semibold text-white">PMEs</h3>
                         </div>
                         <div class="bg-gray-700 p-4 rounded-lg text-center">
                           <i class="fas fa-industry text-3xl text-blue-400 mb-2"></i>
-                          <h3 class="font-semibold text-white">Indústrias</h3>
+                          <h3 class="font-semibold text-white">Grandes Empresas</h3>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg text-center">
+                          <i class="fas fa-store text-3xl text-blue-400 mb-2"></i>
+                          <h3 class="font-semibold text-white">E-commerce</h3>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg text-center">
+                          <i class="fas fa-graduation-cap text-3xl text-blue-400 mb-2"></i>
+                          <h3 class="font-semibold text-white">Educação</h3>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg text-center">
+                          <i class="fas fa-heart text-3xl text-blue-400 mb-2"></i>
+                          <h3 class="font-semibold text-white">Saúde</h3>
                         </div>
                       </div>
                     </div>
@@ -131,9 +152,9 @@
       <!-- Call to Action -->
       <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-16">
         <div class="container mx-auto px-4">
-          <p class="text-2xl font-semibold mb-6">Quer fazer um projeto com profissionais? Orçamento grátis!</p>
+          <p class="text-2xl font-semibold mb-6">Pronto para transformar seu negócio? Consultoria gratuita!</p>
           <Button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
-            Solicite agora
+            Agende sua consultoria
           </Button>
         </div>
       </div>

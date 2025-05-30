@@ -57,6 +57,7 @@ export default defineNuxtConfig({
   // SEO Configuration
   app: {
     head: {
+      title: 'Koderra',
       htmlAttrs: {
         lang: 'pt-BR'
       },

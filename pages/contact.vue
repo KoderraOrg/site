@@ -54,7 +54,7 @@
                                 <i class="fas fa-map-marker-alt text-blue-400 text-xl mt-1"></i>
                                 <div>
                                     <h3 class="font-semibold text-white">Endereço</h3>
-                                    <p class="text-gray-400">Rua Exemplo, 123 - Campinas, SP</p>
+                                    <p class="text-gray-400">Campinas, SP</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
