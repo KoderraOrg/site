@@ -17,12 +17,14 @@ export default defineNuxtConfig({
     public: {
       blogEnabled: process.env.BLOG === 'true',
       seoEnabled: process.env.SEO === 'true',
-      siteUrl: process.env.SITE_URL || 'https://your-domain.com',
-      siteName: 'Your Site Name',
-      siteDescription: 'Your site description',
-      language: 'en',
+      siteUrl: process.env.SITE_URL || 'https://koderra.com.br',
+      siteName: process.env.SITE_NAME || 'Koderra - Consultoria Digital',
+      siteDescription: process.env.SITE_DESCRIPTION || 'Especialistas em consultoria digital, desenvolvimento web e marketing digital. Transformamos sua visão em realidade com soluções inovadoras e personalizadas para impulsionar o crescimento do seu negócio.',
+      language: process.env.SITE_LANGUAGE || 'pt-BR',
       calUsername: process.env.CAL_USERNAME || '',
-      whatsappNumber: process.env.WHATSAPP_NUMBER || ''
+      whatsappNumber: process.env.WHATSAPP_NUMBER || '',
+      googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || '',
+      googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || ''
     }
   },
 
@@ -30,7 +32,7 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@pinia/nuxt',
     '@sidebase/nuxt-auth',
-    ...(process.env.SEO === 'true' ? ['@nuxtjs/seo'] : [])
+    '@nuxtjs/seo'
   ], 
 
   auth: {
@@ -55,19 +57,25 @@ export default defineNuxtConfig({
   // SEO Configuration
   app: {
     head: {
+      title: 'Koderra',
       htmlAttrs: {
-        lang: 'en'
+        lang: 'pt-BR'
       },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        ...(process.env.SEO === 'true' ? [
-          { name: 'description', content: 'Your site description' },
-          { name: 'format-detection', content: 'telephone=no' }
-        ] : []),
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'author', content: 'Koderra - Consultoria Digital' },
+        { name: 'robots', content: 'index, follow' },
+        { name: 'theme-color', content: '#0891b2' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:locale', content: 'pt_BR' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:creator', content: '@koderra' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'canonical', href: process.env.SITE_URL || 'https://koderra.com.br' }
       ]
     }
   }
