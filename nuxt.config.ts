@@ -11,11 +11,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    auth: {
-      secret: process.env.AUTH_SECRET
-    },
     public: {
-      blogEnabled: process.env.BLOG === 'true',
       seoEnabled: process.env.SEO === 'true',
       siteUrl: process.env.SITE_URL || 'https://koderra.com.br',
       siteName: process.env.SITE_NAME || 'Koderra - Consultoria Digital',
@@ -31,16 +27,8 @@ export default defineNuxtConfig({
   modules: [
     'shadcn-nuxt',
     '@pinia/nuxt',
-    '@sidebase/nuxt-auth',
     '@nuxtjs/seo'
   ], 
-
-  auth: {
-    baseURL: process.env.AUTH_ORIGIN,
-    provider: {
-      type: 'authjs'
-    }
-  },
 
   shadcn: {
     /**

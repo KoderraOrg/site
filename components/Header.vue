@@ -53,15 +53,7 @@
             <div v-if="$route.path === '/contact'" class="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-lg"></div>
           </a>
           
-          <a 
-            v-if="blogEnabled" 
-            href="/blog" 
-            class="text-sm font-medium transition-all duration-300 relative group py-2 px-4 rounded-lg"
-            :class="$route.path.startsWith('/blog') ? 'text-cyan-400 bg-cyan-400/10 shadow-lg shadow-cyan-400/25' : 'text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50'"
-          >
-            <span class="relative z-10">Blog</span>
-            <div v-if="$route.path.startsWith('/blog')" class="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-lg"></div>
-          </a>
+          
         </nav>
 
         <!-- Enhanced CTA Buttons for desktop -->
@@ -180,18 +172,7 @@
                 <span class="font-medium">Contato</span>
               </a>
               
-              <a 
-                v-if="blogEnabled" 
-                href="/blog" 
-                @click="closeMobileMenu"
-                class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 transition-all duration-300"
-                :class="{ 'text-cyan-400 bg-cyan-400/10': $route.path.startsWith('/blog') }"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
-                </svg>
-                <span class="font-medium">Blog</span>
-              </a>
+
             </nav>
             
             <!-- Enhanced mobile CTA -->
@@ -235,10 +216,8 @@
 
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
-import { isBlogEnabled } from '~/lib/utils'
 
 const route = useRoute()
-const blogEnabled = isBlogEnabled()
 const mobileMenuOpen = ref(false)
 
 const calEnabled = computed(() => {

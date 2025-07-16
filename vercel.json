@@ -1,0 +1,11 @@
+{
+  "framework": "nuxt",
+  "buildCommand": "pnpm run build",
+  "devCommand": "pnpm run dev",
+  "installCommand": "pnpm install",
+  "functions": {
+    "server/api/send-email.post.ts": {
+      "maxDuration": 30
+    }
+  }
+} 
