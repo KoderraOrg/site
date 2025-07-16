@@ -5,8 +5,7 @@
         <!-- Company info -->
         <div class="md:col-span-1">
           <div class="flex items-center gap-2 mb-4">
-              <img src="/images/logos/logo.svg" alt="Logo" class="h-10 w-10 sm:h-12 sm:w-12" />
-            <span class="text-xl font-bold text-gray-100">Koderra</span>
+              <img src="/images/logos/logo.png" alt="Logo" class="h-10 w-auto sm:h-12 sm:w-auto" />
           </div>
           <p class="text-gray-400 text-sm leading-relaxed mb-6">
             Transformando negócios através de soluções digitais inovadoras e estratégias personalizadas.

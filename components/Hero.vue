@@ -86,13 +86,6 @@
       </div>
 
     </div>
-
-    <!-- Enhanced scroll indicator -->
-    <div class="hidden sm:block absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <div class="w-6 h-10 border-2 border-gray-400/60 hover:border-cyan-400 rounded-full flex justify-center cursor-pointer transition-colors duration-300" @click="scrollToServices">
-        <div class="w-1 h-3 bg-gradient-to-b from-cyan-400 to-pink-500 rounded-full mt-2 animate-pulse"></div>
-      </div>
-    </div>
   </section>
 </template>
 

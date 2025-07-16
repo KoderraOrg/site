@@ -5,13 +5,8 @@
         <!-- Logo with enhanced responsiveness -->
         <a href="/" class="flex items-center gap-2 sm:gap-3 group">
           <div class="relative">
-            <img src="/images/logos/logo.svg" alt="Logo" class="h-10 w-10 sm:h-12 sm:w-12" />
+            <img src="/images/logos/logo.png" alt="Logo" class="h-10 w-auto sm:h-12 sm:w-auto" />
             <div class="absolute inset-0 bg-cyan-400/20 rounded-full blur-md opacity-0 transition-opacity duration-300"></div>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-lg sm:text-xl font-bold text-gray-100 transition-colors duration-300 ">
-              Koderra
-            </span>
           </div>
         </a>
         
