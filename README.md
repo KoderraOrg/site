@@ -12,8 +12,6 @@ Especialistas em consultoria digital, desenvolvimento web e marketing digital. T
 - Vue 3
 - TypeScript
 - TailwindCSS
-- Prisma (ORM)
-- Docker
 - @nuxtjs/seo (SEO otimizado)
 
 ## Dependências Principais
@@ -21,7 +19,6 @@ Especialistas em consultoria digital, desenvolvimento web e marketing digital. T
 ```json
 {
   "dependencies": {
-    "@prisma/client": "^6.8.2",
     "@tailwindcss/vite": "^4.1.7",
     "@nuxtjs/seo": "^3.0.3",
     "nuxt": "^3.17.3",
@@ -57,22 +54,12 @@ touch .env
 **Exemplo de arquivo .env:**
 
 ```bash
-# Configurações de Autenticação
-AUTH_SECRET=your-auth-secret-key-here
-AUTH_ORIGIN=http://localhost:3000
-
-# Configurações do Banco de Dados
-DATABASE_URL=postgresql://user:password@localhost:5432/database_name
-
 # Configurações de SEO
 SEO=true
 SITE_URL=https://koderra.com.br
 SITE_NAME=Koderra - Consultoria Digital
 SITE_DESCRIPTION=Especialistas em consultoria digital, desenvolvimento web e marketing digital. Transformamos sua visão em realidade com soluções inovadoras e personalizadas.
 SITE_LANGUAGE=pt-BR
-
-# Configurações de Blog
-BLOG=true
 
 # Configurações de Integração
 CAL_USERNAME=seu-usuario-cal
@@ -83,14 +70,17 @@ GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 
 # Google Search Console (opcional)
 GOOGLE_SITE_VERIFICATION=your-verification-code
+
+# Configurações de Email (para formulário de contato)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=seu-email@gmail.com
+SMTP_PASS=sua-senha-de-app
+SMTP_FROM=seu-email@gmail.com
+SMTP_TO=contato@koderra.com.br
 ```
 
 **Variáveis importantes:**
-
-### Configurações Básicas
-- `AUTH_SECRET`: Chave secreta para autenticação
-- `AUTH_ORIGIN`: URL de origem para autenticação (ex: http://localhost:3000)
-- `DATABASE_URL`: String de conexão com o PostgreSQL
 
 ### Configurações de SEO
 - `SEO=true`: Habilita as funcionalidades de SEO
@@ -102,11 +92,18 @@ GOOGLE_SITE_VERIFICATION=your-verification-code
 ### Configurações de Integração
 - `CAL_USERNAME`: Nome de usuário do Cal.com para agendamentos
 - `WHATSAPP_NUMBER`: Número do WhatsApp com código do país (ex: 5511999999999)
-- `BLOG=true`: Habilita funcionalidades do blog
 
 ### Configurações de Analytics
 - `GOOGLE_ANALYTICS_ID`: ID do Google Analytics (ex: G-XXXXXXXXXX)
 - `GOOGLE_SITE_VERIFICATION`: Código de verificação do Google Search Console
+
+### Configurações de Email
+- `SMTP_HOST`: Servidor SMTP (ex: smtp.gmail.com)
+- `SMTP_PORT`: Porta do servidor SMTP (ex: 587)
+- `SMTP_USER`: Email para autenticação
+- `SMTP_PASS`: Senha do email
+- `SMTP_FROM`: Email de origem
+- `SMTP_TO`: Email de destino para receber os formulários
 
 ## Comandos Disponíveis
 
@@ -115,13 +112,15 @@ GOOGLE_SITE_VERIFICATION=your-verification-code
 pnpm dev        # Inicia o servidor de desenvolvimento
 pnpm build      # Compila para produção
 pnpm preview    # Visualiza a versão de produção localmente
-
-# Banco de Dados
-pnpm db         # Inicia o banco de dados
-pnpm db:up      # Inicia o container do banco
-pnpm db:down    # Para o container do banco
-pnpm db:migrate # Executa as migrações do Prisma
 ```
+
+## Deploy na Vercel
+
+O projeto está configurado para deploy na Vercel. Para fazer o deploy:
+
+1. Conecte seu repositório à Vercel
+2. Configure as variáveis de ambiente no painel da Vercel
+3. O deploy será feito automaticamente
 
 ## Estrutura do Projeto
 
@@ -129,12 +128,11 @@ pnpm db:migrate # Executa as migrações do Prisma
 ├── app.vue          # Componente principal
 ├── nuxt.config.ts   # Configuração do Nuxt
 ├── composables/     # Composables Vue (incluindo useSeo)
-├── prisma/         # Configurações do Prisma
-├── server/         # API e rotas do servidor
+├── server/         # API do servidor (formulário de contato)
 ├── public/         # Arquivos estáticos
 ├── plugins/        # Plugins do Nuxt (incluindo Google Analytics)
 ├── types/          # Definições de tipos TypeScript
-└── helpers/        # Scripts e utilitários
+└── components/     # Componentes Vue
 ```
 
 ## Recursos de SEO
@@ -152,14 +150,9 @@ useSeo({
   title: 'Título da Página',
   description: 'Descrição da página para SEO',
   url: '/caminho-da-pagina',
-  type: 'website', // ou 'article' para blog posts
+  type: 'website',
   keywords: ['palavra1', 'palavra2', 'palavra3'],
-  author: 'Nome do Autor',
-  // Para artigos de blog:
-  publishedTime: '2024-01-01T00:00:00Z',
-  modifiedTime: '2024-01-02T00:00:00Z',
-  section: 'Categoria',
-  tags: ['tag1', 'tag2']
+  author: 'Nome do Autor'
 })
 </script>
 ```
@@ -178,29 +171,7 @@ useSeo({
 ### Sitemap Automático
 O sitemap é gerado automaticamente em `/sitemap.xml` e inclui:
 - Páginas estáticas do site
-- Posts do blog
 - Configuração de prioridade e frequência de atualização
-
-## Roadmap de Desenvolvimento
-
-- [X] Páginas institucionais
-- [X] Biblioteca de componentes UI
-- [X] Sistema de autenticação
-- [X] Feature flags
-- [X] Formulários com envio de email
-- [X] Blog corporativo
-  - [X] Sistema de autenticação
-  - [X] CRUD de artigos
-- [X] Integração com Cal.com para agendamento
-- [X] **SEO Completo**
-  - [X] Meta tags otimizadas
-  - [X] Open Graph e Twitter Cards
-  - [X] Structured Data
-  - [X] Sitemap dinâmico
-  - [X] Google Analytics
-- [ ] Testes automatizados
-- [ ] Otimizações de performance
-- [ ] Integração com CRM
 
 ## Funcionalidades
 
@@ -245,34 +216,27 @@ Para utilizar os componentes em outras partes do site:
 </template>
 ```
 
-#### Propriedades dos componentes
+### Formulário de Contato
 
-**CalendarBookingIframe:**
-| Propriedade   | Tipo   | Padrão            | Descrição                             |
-|---------------|--------|-------------------|---------------------------------------|
-| calUsername   | String | .env              | Nome de usuário do Cal.com            |
-| buttonText    | String | Agende seu horário| Texto exibido no botão                |
-| buttonVariant | String | default           | Variante do botão (default, outline..)|
-| buttonSize    | String | default           | Tamanho do botão (sm, default, lg)    |
-| buttonClass   | String | ""                | Classes CSS adicionais                |
+O site possui um formulário de contato funcional que envia emails através da API `/api/send-email.post.ts`. Para funcionar, configure as variáveis de ambiente de SMTP.
 
-**WhatsAppLink:**
-| Propriedade   | Tipo   | Padrão                              | Descrição                             |
-|---------------|--------|-------------------------------------|---------------------------------------|
-| whatsappNumber| String | .env                                | Número do WhatsApp                    |
-| message       | String | Olá! Gostaria de mais informações. | Mensagem pré-definida                 |
-| buttonText    | String | Falar no WhatsApp                   | Texto exibido no botão                |
-| buttonVariant | String | default                             | Variante do botão                     |
-| buttonSize    | String | default                             | Tamanho do botão                      |
-| buttonClass   | String | ""                                  | Classes CSS adicionais                |
+## Roadmap de Desenvolvimento
 
-### Google Analytics
+- [X] Páginas institucionais
+- [X] Biblioteca de componentes UI
+- [X] Feature flags
+- [X] Formulários com envio de email
+- [X] Integração com Cal.com para agendamento
+- [X] **SEO Completo**
+  - [X] Meta tags otimizadas
+  - [X] Open Graph e Twitter Cards
+  - [X] Structured Data
+  - [X] Sitemap dinâmico
+  - [X] Google Analytics
+- [ ] Testes automatizados
+- [ ] Otimizações de performance
+- [ ] Integração com CRM
 
-O tracking está configurado automaticamente quando o ID é definido:
+## Deploy
 
-```bash
-# No arquivo .env
-GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-```
-
-O tracking é aplicado automaticamente em todas as páginas do site.
+O projeto está otimizado para deploy na Vercel como site estático, mantendo apenas a funcionalidade de envio de email através de serverless functions.

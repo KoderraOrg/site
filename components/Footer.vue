@@ -98,9 +98,7 @@
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/blog" class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 text-sm">
-                Blog
-              </NuxtLink>
+
             </li>
             <li>
               <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 text-sm">

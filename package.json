@@ -4,31 +4,21 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "pnpm run db && nuxt dev",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "db": "npm run db:down && npm run db:up && npm run db:migrate",
-    "db:up": "node helpers/scripts/database/create-db.mjs",
-    "db:down": "node helpers/scripts/database/destroy-db.mjs",
-    "db:migrate": "npx prisma migrate dev --name init"
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@nuxtjs/seo": "^3.0.3",
     "@pinia/nuxt": "^0.11.0",
-    "@prisma/client": "^6.8.2",
-    "@sidebase/nuxt-auth": "^0.10.1",
     "@tailwindcss/vite": "^4.1.7",
     "@tanstack/vue-table": "^8.21.3",
-    "@types/bcrypt": "^5.0.2",
     "@types/nodemailer": "^6.4.17",
-    "@types/uuid": "^10.0.0",
     "@vueuse/core": "^13.2.0",
-    "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.511.0",
-    "next-auth": "4.22.5",
     "nodemailer": "^7.0.3",
     "nuxt": "^3.17.3",
     "pinia": "^3.0.2",
@@ -38,14 +28,12 @@
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7",
     "tw-animate-css": "^1.3.0",
-    "uuid": "^11.1.0",
     "vue": "^3.5.14",
     "vue-router": "^4.5.1",
     "vue-sonner": "^1.3.2"
   },
   "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977",
   "devDependencies": {
-    "prisma": "^6.8.2",
     "typescript": "^5.8.3"
   }
 }
