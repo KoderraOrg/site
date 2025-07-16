@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "server/api/send-email.post.ts": {
-      "maxDuration": 30
-    }
-  }
-} 
