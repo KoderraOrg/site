@@ -68,7 +68,7 @@
                                 <i class="fas fa-envelope text-blue-400 text-xl mt-1"></i>
                                 <div>
                                     <h3 class="font-semibold text-white">E-mail</h3>
-                                    <p class="text-gray-400">contato@exemplo.com</p>
+                                    <p class="text-gray-400">koderraorg@gmail.com</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
