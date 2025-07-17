@@ -12,28 +12,30 @@
     </slot>
     
     <!-- Cal.com Modal com iframe -->
-    <div v-if="showModal" class="cal-modal-overlay" @click="closeCalModal">
-      <div class="cal-modal-container" @click.stop>
-        <button class="cal-modal-close" @click="closeCalModal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-        </button>
-        <div class="cal-modal-content">
-          <div v-if="loadError" class="cal-error">
-            <p class="text-center text-red-600">{{ loadError }}</p>
+    <Teleport to="body">
+      <div v-if="showModal" class="cal-modal-overlay" @click="closeCalModal">
+        <div class="cal-modal-container" @click.stop>
+          <button class="cal-modal-close" @click="closeCalModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </button>
+          <div class="cal-modal-content">
+            <div v-if="loadError" class="cal-error">
+              <p class="text-center text-red-600">{{ loadError }}</p>
+            </div>
+            <iframe 
+              v-else
+              :src="calUrl" 
+              width="100%" 
+              height="100%" 
+              frameborder="0"
+              style="border: none; border-radius: 8px;"
+              @load="onIframeLoad"
+              @error="onIframeError"
+            ></iframe>
           </div>
-          <iframe 
-            v-else
-            :src="calUrl" 
-            width="100%" 
-            height="100%" 
-            frameborder="0"
-            style="border: none; border-radius: 8px;"
-            @load="onIframeLoad"
-            @error="onIframeError"
-          ></iframe>
         </div>
       </div>
-    </div>
+    </Teleport>
   </div>
 </template>
 
@@ -90,11 +92,17 @@ const openCalModal = () => {
   
   showModal.value = true
   loadError.value = ''
+  document.body.style.overflow = 'hidden'
+  document.body.style.position = 'fixed'
+  document.body.style.width = '100%'
 }
 
 const closeCalModal = () => {
   showModal.value = false
   loadError.value = ''
+  document.body.style.overflow = ''
+  document.body.style.position = ''
+  document.body.style.width = ''
 }
 
 const onIframeLoad = () => {
@@ -113,11 +121,12 @@ const onIframeError = () => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 50;
+  z-index: 9999;
+  padding: 30px;
 }
 
 .cal-modal-container {
@@ -126,8 +135,10 @@ const onIframeError = () => {
   width: 90%;
   max-width: 1024px;
   height: 85vh;
+  max-height: calc(100vh - 40px);
   position: relative;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
 
 .cal-modal-close {

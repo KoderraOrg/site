@@ -137,9 +137,6 @@
     <!-- Testimonials Section -->
     <Testimonials />
 
-    <!-- Call to Action Section -->
-    <CtaSection />
-
     <!-- Contact Section with enhanced design -->
     <section id="contact" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-800 to-gray-900">
       <div class="max-w-4xl mx-auto">
@@ -202,7 +199,6 @@ import Header from '@/components/Header.vue'
 import Hero from '@/components/Hero.vue'
 import FeatureCard from '@/components/FeatureCard.vue'
 import Testimonials from '@/components/Testimonials.vue'
-import CtaSection from '@/components/CtaSection.vue'
 import Footer from '~/components/Footer.vue'
 import EmailForm from '@/components/EmailForm.vue'
 import { useSeo } from '@/composables/useSeo'

@@ -230,12 +230,6 @@ useSeo({
 const logos = [
     { src: '/images/logos/clients/cliente1.png', alt: 'Logo Cliente 1' },
     { src: '/images/logos/clients/cliente2.png', alt: 'Logo Cliente 2' },
-    { src: '/images/logos/clients/cliente3.png', alt: 'Logo Cliente 3' },
-    { src: '/images/logos/clients/cliente4.png', alt: 'Logo Cliente 4' },
-    { src: '/images/logos/clients/cliente5.png', alt: 'Logo Cliente 5' },
-    { src: '/images/logos/clients/cliente6.png', alt: 'Logo Cliente 6' },
-    { src: '/images/logos/clients/cliente7.png', alt: 'Logo Cliente 7' },
-    { src: '/images/logos/clients/cliente8.png', alt: 'Logo Cliente 8' }
 ]
 </script>
 

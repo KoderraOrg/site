@@ -62,7 +62,8 @@ export default defineNuxtConfig({
         { name: 'twitter:creator', content: '@koderra' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon.png?v=1' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon.png?v=1' },
         { rel: 'canonical', href: process.env.SITE_URL || 'https://koderra.com.br' }
       ]
     }

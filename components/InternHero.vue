@@ -6,7 +6,7 @@
         </div>
         <div class="container mx-auto px-4 h-full flex items-center relative z-10">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-6xl md:text-7xl font-extrabold mb-8 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-primary-200">
+                <h1 class="text-6xl md:text-7xl font-extrabold mb-8 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[rgba(255,255,255,0.9)] to-[rgba(255,255,255,0.5)]">
                     {{ title }}
                 </h1>
                 <p class="text-xl md:text-2xl italic leading-relaxed font-light text-primary-100 max-w-2xl mx-auto">

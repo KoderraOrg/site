@@ -1,6 +1,20 @@
 <template>
-  <section class="py-20 px-6">
-    <div class="max-w-6xl mx-auto">
+  <section class="relative py-20 px-6 overflow-hidden">
+    <!-- Background gradient and patterns -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
+    
+    <!-- Animated background elements -->
+    <div class="absolute inset-0">
+      <!-- Floating orbs -->
+      <div class="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-40 h-40 bg-pink-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+      <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-500"></div>
+      
+      <!-- Grid pattern overlay -->
+      <div class="absolute inset-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.02%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto z-10">
       <!-- Section header -->
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-100 mb-4">
@@ -25,9 +39,9 @@
               :key="testimonial.id"
               class="absolute inset-0 flex items-center justify-center w-full"
             >
-              <div class="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 md:p-8 flex flex-col items-center text-center max-w-4xl mx-auto w-full">
+              <div class="bg-gradient-to-br from-gray-800/80 via-gray-700/80 to-gray-800/80 backdrop-blur-xl rounded-2xl p-6 md:p-8 flex flex-col items-center text-center max-w-4xl mx-auto w-full border border-gray-600/30 shadow-2xl shadow-black/20">
                 <!-- Quote icon -->
-                <div class="w-12 h-12 bg-gradient-to-br from-cyan-400/20 to-pink-500/20 rounded-full flex items-center justify-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-br from-cyan-400/30 to-pink-500/30 rounded-full flex items-center justify-center mb-6 border border-cyan-400/20">
                   <svg class="w-6 h-6 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                   </svg>
@@ -43,7 +57,7 @@
                   <svg
                     v-for="star in testimonial.rating"
                     :key="star"
-                    class="w-5 h-5 text-yellow-400 fill-current"
+                    class="w-5 h-5 text-yellow-400 fill-current drop-shadow-sm"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -64,7 +78,7 @@
         <!-- Navigation buttons -->
         <button
           @click="prevTestimonial"
-          class="absolute left-0 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gray-800/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:bg-gray-700/80 transition-all duration-300 z-10"
+          class="absolute left-0 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:from-cyan-500/20 hover:to-cyan-600/20 transition-all duration-300 z-10 border border-gray-600/30 shadow-lg"
           aria-label="Depoimento anterior"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +88,7 @@
 
         <button
           @click="nextTestimonial"
-          class="absolute right-0 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gray-800/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:bg-gray-700/80 transition-all duration-300 z-10"
+          class="absolute right-0 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gradient-to-l from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:from-cyan-500/20 hover:to-cyan-600/20 transition-all duration-300 z-10 border border-gray-600/30 shadow-lg"
           aria-label="Próximo depoimento"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,8 +103,8 @@
           v-for="(testimonial, index) in testimonials"
           :key="testimonial.id"
           @click="goToTestimonial(index)"
-          class="w-3 h-3 rounded-full transition-all duration-300"
-          :class="index === currentIndex ? 'bg-cyan-400' : 'bg-gray-600 hover:bg-gray-500'"
+          class="w-3 h-3 rounded-full transition-all duration-300 shadow-sm"
+          :class="index === currentIndex ? 'bg-gradient-to-r from-cyan-400 to-cyan-500 shadow-cyan-400/50' : 'bg-gray-600/60 hover:bg-gray-500/80'"
           :aria-label="`Ir para depoimento ${index + 1}`"
         />
       </div>
