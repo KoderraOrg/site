@@ -54,19 +54,6 @@
         <!-- Enhanced CTA Buttons for desktop -->
         <div class="hidden lg:flex items-center gap-3">
           <CalendarBookingIframe v-if="calEnabled" buttonSize="sm" />
-          
-          <a href="/contact">
-            <Button 
-              size="sm" 
-              class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-lg px-4 py-2 font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25"
-            >
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              <span class="hidden xl:inline">Fale Conosco</span>
-              <span class="xl:hidden">Contato</span>
-            </Button>
-          </a>
         </div>
 
         <!-- Enhanced tablet navigation (md screens) -->

@@ -153,9 +153,9 @@
       <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-16">
         <div class="container mx-auto px-4">
           <p class="text-2xl font-semibold mb-6">Pronto para transformar seu negócio? Consultoria gratuita!</p>
-          <Button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
+          <a href="/contact" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg">
             Agende sua consultoria
-          </Button>
+          </a>
         </div>
       </div>
   

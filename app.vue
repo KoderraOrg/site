@@ -39,7 +39,7 @@
       <button
         v-show="showScrollTop"
         @click="scrollToTop"
-        class="fixed bottom-6 right-6 z-40 p-3 bg-cyan-400 hover:bg-cyan-500 text-gray-900 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+        class="cursor-pointer fixed bottom-6 right-6 z-40 p-3 bg-cyan-400 hover:bg-cyan-500 text-gray-900 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
         aria-label="Voltar ao topo"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
